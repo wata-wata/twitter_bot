@@ -11,7 +11,6 @@ import random
 from cvs_config import * # keyを取得
 
 # スクレイピング対象の URL にリクエストを送り HTML を取得する
-# ページをfor文で回してnameとかに情報を入れていきたい #######################################
 res = requests.get('https://www.sej.co.jp/products/a/thisweek/area/kanto/1/l15/') # セブンイレブン新商品
 
 # レスポンスの HTML から BeautifulSoup オブジェクトを作る
@@ -23,9 +22,6 @@ find1 = soup.find_all('div', attrs={'class': 'list_inner'})
 find1 = ''.join(str(find1)) # リストから文字列に変換する
 # findが使えるようにfind1を変換する
 find1 = BeautifulSoup(find1, 'html.parser')
-
-# find2 = find1.find_all('div', attrs={'class': 'item_ttl'})
-# print(find2[0].text)
 
 # 商品の番号
 num = 10
@@ -52,7 +48,7 @@ str2 = 'https://www.sej.co.jp' + str(url[num*2])
 
 # 値段
 price = []
-# print(find1.find_all('div', class_='item_price'))
+
 for i in find1.find_all('div', attrs={'class': 'item_price'}):
     price.append(i.text)
 
@@ -87,11 +83,11 @@ def post_tweet(body):
         print(f"Failed: {res.status_code}")
 
 def main():
-    post_tweet('セブンイレブン新商品\n' + str1 + '\n' + str2 + '\n' + str3 + '\n' + str4) # ツイートする
-    # print(str1)
-    # print(str2)
-    # print(str3)
-    # print(str4)
+    # post_tweet('セブンイレブン新商品\n' + str1 + '\n' + str2 + '\n' + str3 + '\n' + str4) # ツイートする
+    print(str1)
+    print(str2)
+    print(str3)
+    print(str4)
     a = 0
 
 if __name__ == "__main__":
