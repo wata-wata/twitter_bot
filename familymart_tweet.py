@@ -27,8 +27,8 @@ category = []
 # replaceを使って空白削除
 for i in find1.find_all('p', attrs={'class': 'ly-mod-infoset4-cate'}):
     category.append(i.text.replace('\t', '').replace('\n', ''))
-# print(category[0])
-# print(len(category))
+print(category[0])
+print(len(category))
 
 N = len(category) # 商品の数を取得する
 # 0~N-1の乱数をnumに代入する
@@ -39,8 +39,8 @@ str1 = category[num]
 url = []
 for i in find1.find_all('a'):
     url.append(i.get('href'))
-# print(url[0])
-# print(len(url))
+print(url[0])
+print(len(url))
 str2 = url[num]
 
 # 商品名
@@ -55,12 +55,9 @@ str3 = name[num]
 price = []
 for i in find1.find_all('p', attrs={'class': 'ly-mod-infoset4-txt'}):
     price.append(i.text.replace('\t', '').replace('\n', ''))
-# print(price[0])
-# print(len(price))
+print(price[0])
+print(len(price))
 str4 = price[num]
-
-# 発売日
-# ファミマは発売日取ってくるの難しい...?
 
 # 投稿処理
 def post_tweet(body):
@@ -81,11 +78,10 @@ def post_tweet(body):
 
 def main():
     post_tweet('ファミリーマート新商品\n' + str1 + '\n' + str2 + '\n' + str3 + '\n' + str4) # ツイートする
-    # print(str1)
-    # print(str2)
-    # print(str3)
-    # print(str4)
-    a = 0
+    print(str1)
+    print(str2)
+    print(str3)
+    print(str4)
 
 if __name__ == "__main__":
     main()

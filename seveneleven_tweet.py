@@ -18,7 +18,7 @@ soup = BeautifulSoup(res.text, 'html.parser')
 
 # 新商品を抽出
 find1 = soup.find_all('div', attrs={'class': 'list_inner'})
-# print(find1)
+print(find1)
 find1 = ''.join(str(find1)) # リストから文字列に変換する
 # findが使えるようにfind1を変換する
 find1 = BeautifulSoup(find1, 'html.parser')
@@ -83,12 +83,11 @@ def post_tweet(body):
         print(f"Failed: {res.status_code}")
 
 def main():
-    # post_tweet('セブンイレブン新商品\n' + str1 + '\n' + str2 + '\n' + str3 + '\n' + str4) # ツイートする
+    post_tweet('セブンイレブン新商品\n' + str1 + '\n' + str2 + '\n' + str3 + '\n' + str4) # ツイートする
     print(str1)
     print(str2)
     print(str3)
     print(str4)
-    a = 0
 
 if __name__ == "__main__":
     main()

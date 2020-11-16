@@ -39,18 +39,18 @@ N = len(name) # 商品の数を取得する
 num = random.randint(0, N-1)
 # num+1番目の商品を表示する
 
-# print(name)
-# print(name[num])
+print(name)
+print(name[num])
 str1 = name[num]
 
 # URL
 url = []
 for i in find2.find_all('a'):
-    url.append(i.get('href')) # URLが1ずつ入る
+    url.append(i.get('href')) # URLが1つずつ入る
 
 print("len(url):"+str(len(url))) # 156
 
-# print('https://www.lawson.co.jp' + url[num*3])
+print('https://www.lawson.co.jp' + url[num*3])
 str2 = 'https://www.lawson.co.jp' + url[num*3]
 
 # 値段
